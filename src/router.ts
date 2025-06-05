@@ -3,6 +3,7 @@ import { renderAbout } from './pages/about';
 import { renderContact } from './pages/contact';
 import { renderHome } from './pages/home';
 import { renderNotFound } from './pages/notfound';
+import { renderProduct } from './pages/products';
 
 export function initRouter(): void {
     window.addEventListener('popstate', renderRoute);
@@ -16,7 +17,6 @@ export function initRouter(): void {
             renderRoute();
         }
     });
-
     renderRoute();
 }
 
@@ -31,6 +31,9 @@ function renderRoute(): void {
             break;
         case '/about':
             contentFn = renderAbout;
+            break;
+        case '/product':
+            contentFn = renderProduct;
             break;
         case '/contact':
             contentFn = renderContact;

@@ -681,6 +681,7 @@ var _about = require("./pages/about");
 var _contact = require("./pages/contact");
 var _home = require("./pages/home");
 var _notfound = require("./pages/notfound");
+var _products = require("./pages/products");
 function initRouter() {
     window.addEventListener('popstate', renderRoute);
     document.addEventListener('click', (e)=>{
@@ -704,6 +705,9 @@ function renderRoute() {
         case '/about':
             contentFn = (0, _about.renderAbout);
             break;
+        case '/product':
+            contentFn = (0, _products.renderProduct);
+            break;
         case '/contact':
             contentFn = (0, _contact.renderContact);
             break;
@@ -714,7 +718,7 @@ function renderRoute() {
     (0, _layout.createLayout)(contentFn);
 }
 
-},{"./layout":"aUJjy","./pages/about":"d8csY","./pages/contact":"a0XsK","./pages/home":"l0Soh","./pages/notfound":"20OKX","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aUJjy":[function(require,module,exports,__globalThis) {
+},{"./layout":"aUJjy","./pages/about":"d8csY","./pages/contact":"a0XsK","./pages/home":"l0Soh","./pages/notfound":"20OKX","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./pages/products":"kgp9M"}],"aUJjy":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createLayout", ()=>createLayout);
@@ -737,84 +741,93 @@ function Footer() {
     const footer = document.createElement('footer');
     footer.className = 'bg-white dark:bg-gray-800 flex justify-center items-center w-full p-5';
     footer.innerHTML = `
-    <div class="bg-white text-gray-700 border-t border-gray-200">
-  <div class="container mx-auto px-6 py-8">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-      <!-- Logo & Description -->
-      <div>
-        <h2 class="text-xl font-semibold flex items-center space-x-2">
-          <span class="text-blue-600 text-2xl">ES</span> <span>BAZAR</span>
-        </h2>
-        <p class="mt-2 text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur. Imperdiet aliquet faucibus malesuada vitae.
-        </p>
-        <p class="mt-2 text-sm text-gray-600">
-          <span class="font-semibold">(219) 555-0114</span>
-        </p>
-        <!-- Social Icons -->
-        <div class="flex space-x-3 mt-3">
-          <a href="#" class="text-blue-600"><i class="fab fa-facebook"></i></a>
-          <a href="#" class="text-red-600"><i class="fab fa-reddit"></i></a>
-          <a href="#" class="text-green-500"><i class="fab fa-whatsapp"></i></a>
-          <a href="#" class="text-pink-600"><i class="fab fa-pinterest"></i></a>
+  <footer class="bg-white w-full dark:bg-gray-900">
+    <div class=" w-full">
+      <div class="mx-auto max-w-7xl grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
+          <ul class="text-gray-500 dark:text-gray-400 font-medium">
+            <li class="mb-4">
+              <a href="#" class=" hover:underline">About</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Careers</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Brand Center</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Blog</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help center</h2>
+          <ul class="text-gray-500 dark:text-gray-400 font-medium">
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Discord Server</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Twitter</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Facebook</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+          <ul class="text-gray-500 dark:text-gray-400 font-medium">
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Privacy Policy</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Licensing</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h2>
+          <ul class="text-gray-500 dark:text-gray-400 font-medium">
+            <li class="mb-4">
+              <a href="#" class="hover:underline">iOS</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Android</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Windows</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">MacOS</a>
+            </li>
+          </ul>
         </div>
       </div>
-      
-      <!-- My Account -->
-      <div>
-        <h3 class="font-semibold mb-2">My Account</h3>
-        <ul class="text-sm space-y-2">
-          <li><a href="#" class="hover:text-blue-600">My Account</a></li>
-          <li><a href="#" class="hover:text-blue-600">Order History</a></li>
-          <li><a href="#" class="hover:text-blue-600">Shopping Cart</a></li>
-          <li><a href="#" class="hover:text-blue-600">Wishlist</a></li>
-        </ul>
-      </div>
-      
-      <!-- Help Section -->
-      <div>
-        <h3 class="font-semibold mb-2">Helps</h3>
-        <ul class="text-sm space-y-2">
-          <li><a href="#" class="hover:text-blue-600">Contact</a></li>
-          <li><a href="#" class="hover:text-blue-600">FAQs</a></li>
-          <li><a href="#" class="hover:text-blue-600">Terms & Condition</a></li>
-          <li><a href="#" class="hover:text-blue-600">Privacy Policy</a></li>
-        </ul>
-      </div>
-      
-      <!-- Categories -->
-      <div>
-        <h3 class="font-semibold mb-2">Categories</h3>
-        <ul class="text-sm space-y-2">
-          <li><a href="#" class="hover:text-blue-600">Printers</a></li>
-          <li><a href="#" class="hover:text-blue-600">Cartridge</a></li>
-          <li><a href="#" class="hover:text-blue-600">Ink</a></li>
-        </ul>
+      <div class="bg-gray-100 dark:bg-gray-700">
+      <div class="px-4 py-6 max-w-7xl mx-auto md:flex md:items-center md:justify-between">
+        <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">\xa9 2023 <a href="">Electronic store</a>. All Rights Reserved.</span>
+        <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
+          <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+            <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/></svg>
+            <span class="sr-only">Facebook page</span>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/></svg>
+            <span class="sr-only">GitHub account</span>
+          </a>
+        </div>
       </div>
     </div>
-    
-    <!-- Payment and App Download -->
-    <div class="flex flex-col md:flex-row justify-between items-center mt-6">
-      <div class="flex space-x-2">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-v52tLnvL3FEjfxjPvZWbvUMYvVUtAm9R6A&s" alt="Google Play" class="h-10">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJgk5tpxJC_1CAnsXwo2VvBGyQGI-o5c1PJw&s" alt="App Store" class="h-10">
-      </div>
-      <div class="flex space-x-2 mt-4 md:mt-0">
-        <img src="https://www.logo.wine/a/logo/Apple_Pay/Apple_Pay-White-Dark-Background-Logo.wine.svg" alt="Apple Pay" class="h-[30px] w-10 rounded-md">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSynWEtLag--sQ4XlfTwHh9_DAnfcglW7C3iw&s" alt="Visa" class="h-[30px] w-10 rounded-md">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6mJsEDg1aR_JCFb3ohk2nCxjgSvkWnpmlKg&s" alt="Mastercard" class="h-[30px] w-10 rounded-md">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQveKfGcJ1tSEY8bLg52DxvVrFDJXmxXJgv1Q&s" alt="discover" class="h-[30px] w-10 rounded-md">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDS0zyuJdI4e7E1VGaNDAVtRn3fGTzr0PBOA&s" alt="Secure Payment" class="h-[30px] w-10 rounded-md">
-      </div>
-    </div>
-    
-    <!-- Copyright -->
-    <div class="text-center text-sm text-gray-500 mt-6 border-t pt-4">
-      ExpertSquad \xa9 2025. All Rights Reserved.
-    </div>
-  </div>
-</div>
-  `;
+  </footer>`;
     return footer;
 }
 
@@ -856,24 +869,17 @@ function Header() {
     const header = document.createElement('header');
     header.className = 'bg-blue-900 text-white';
     header.innerHTML = `
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5">
             <div class="flex items-center justify-between">
                 <div class="flex-shrink-0">
-                    <a href="/" class="text-2xl font-bold">Tailwind </a>
+                    <a href="/" class="text-2xl font-bold">Electronic store</a>
                 </div>
-
                 <nav class="hidden md:flex space-x-10 text-lg">
-                    <a href="/service" data-link class="hover:text-gray-300 transition-all">Services</a>
+                    <a href="/" data-link class="hover:text-gray-300 transition-all">Home</a>
                     <a href="/about" data-link class="hover:text-gray-300 transition-all">About Us</a>
+                    <a href="/product" data-link class="hover:text-gray-300 transition-all">Products</a>
                     <a href="/contact" data-link class="hover:text-gray-300 transition-all">Contact</a>
                 </nav>
-
-                <div class="hidden md:block">
-                    <a href="#contact" class="bg-yellow-500 hover:bg-yellow-400 text-black py-2 px-6 rounded-full text-lg transition-all">
-                        Get in Touch
-                    </a>
-                </div>
-
                 <div class="md:hidden flex items-center">
                     <button id="menu-button" class="text-white focus:outline-none">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -884,9 +890,10 @@ function Header() {
             </div>
 
             <div id="mobile-menu" class="md:hidden mt-5 hidden space-y-4">
-                <a href="/service" class="block text-lg hover:text-gray-300 transition-all">Services</a>
-                <a href="/about" class="block text-lg hover:text-gray-300 transition-all">About Us</a>
-                <a href="/contact" class="block text-lg hover:text-gray-300 transition-all">Contact</a>
+            <a href="/" class="block text-lg hover:text-gray-300 transition-all">Home</a>
+            <a href="/about" class="block text-lg hover:text-gray-300 transition-all">About Us</a>
+            <a href="/product" class="block text-lg hover:text-gray-300 transition-all">Products</a>
+            <a href="/contact" class="block text-lg hover:text-gray-300 transition-all">Contact</a>
             </div>
         </div>
   `;
@@ -918,153 +925,7 @@ function renderContact() {
     const div = document.createElement('div');
     div.innerHTML = `
     
-<section class="lg:flex lg:gap-5 py-10 lg:px-20 md:px-10 px-5 text-blue-950">
-        <div class="lg:w-1/2 lg:pb-0 pb-10">
-          <h2 class="text-[38px] font-bold mb-5">
-            Contact <span class="text-[#0074F2] ">Info</span>
-          </h2>
-          <p class='pb-5 lg:pr-20'>&quot;
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non nostrum, fugiat accusantium reiciendis magnam dolorem
-            
-            &quot;</p>
-          <div class="space-y-4">
-          
-            <div>
-              <h4 class="text-lg font-normal">Corporate Office:</h4>
 
-              <address class="flex items-start gap-1 pt-3">
-                <IoLocationOutline className='text-blue-500 text-2xl' />
-                : Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non nostrum, fugiat accusantium reiciendis magnam dolorem
-            
-            &quot;
-              </address>
-            </div>
-            <div>
-              <h4 class="text-lg font-medium">Email</h4>
-              <p class="flex items-center gap-2  hover:underline">
-                <MdOutlineEmail class='text-blue-500' />: example@gmail.com
-              </p>
-            </div>
-            <div>
-              <h4 class="text-lg font-medium ">Contact</h4>
-              <p class="flex items-center gap-2"><FaPhoneAlt className='text-blue-500' />: +91 404******</p>
-            </div>
-          </div>
-        </div>
-        <div class='lg:w-1/2 flex flex-col text-blue-950 py-6 rounded-xl pt-16 lg:px-10  md:px-16 px-5 bg-slate-50 lg:pt-7'>
-            <h2 class="text-xl font-light text-blue-600 mb-6">
-                Have Questions? Contact Our Highway Consultancy Team
-            </h2>
-            <form class="space-y-2 w-full" onSubmit={handleSubmit}>
-                <div>
-                    <label
-                        htmlFor="username"
-                        class="block text-gray-600 font-semibold mb-1">
-                        Name <span class='text-red-500'>*</span>
-                    </label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Enter your name"       
-                        required
-                        class="w-full border-gray-300 rounded-xl px-4 py-1.5 text-gray-800 shadow-sm focus:outline-none"
-                    />
-                </div>
-                <div>
-                    <label
-                        htmlFor="mobile"
-                        class="block text-gray-600 font-semibold mb-1">
-                        Mobile Number <span class='text-red-500'>*</span>
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="tel"
-                        name="tel"
-                        placeholder="phone"
-                        required
-                        class="w-full border-gray-300 rounded-xl px-4 py-1.5 text-gray-800 shadow-sm focus:outline-none"
-                    />
-                </div>
-                <div>
-                    <label
-                        htmlFor="email"
-                        className="block text-gray-600 font-semibold mb-1">
-                        Email ID <span class='text-red-500'>*</span>
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="you@example.com"
-                        required
-                        class="w-full border-gray-300 rounded-xl px-4 py-1.5 text-gray-800 shadow-sm focus:outline-none"
-                    />
-                </div>
-                <div>
-                    <label
-                        htmlFor="subjects"
-                        class="block text-gray-600 font-semibold mb-1">
-                        Message
-                    </label>
-                     <input
-                        type="text"
-                        id="Message"
-                        name="Message"
-                        placeholder="Message"       
-                        required
-                        class="w-full border-gray-300 rounded-xl px-4 py-1.5 text-gray-800 shadow-sm focus:outline-none"
-                    />
-                   
-                </div>
-                <div class='flex justify-center'>
-                    <button
-                        type="submit"
-                        class="py-1 px-5 rounded-xl hover:text-blue-400 hover:border-blue-400 border-2  hover:bg-gray-50 cursor-pointer bg-blue-400 text-gray-50"
-                    >
-                        Submit
-                    </button>
-                </div>
-            </form>
-        </div>
-      </section>
-<section class="">
-    <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
-        <div class="max-w-2xl lg:max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900">Visit Our Location</h2>
-            <p class="mt-4 text-lg text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <div class="mt-16 lg:mt-20">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="rounded-lg overflow-hidden">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11672.945750644447!2d-122.42107853750231!3d37.7730507907087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858070cc2fbd55%3A0xa71491d736f62d5c!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1619524992238!5m2!1sen!2sus"
-                        width="100%" height="480" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-                <div>
-                    <div class="max-w-full mx-auto rounded-lg overflow-hidden">
-                        <div class="px-6 py-4">
-                            <h3 class="text-lg font-medium text-gray-900">Our Address</h3>
-                            <p class="mt-1 text-gray-600">123 Main St, San Francisco, CA 94105</p>
-                        </div>
-                        <div class="border-t border-gray-200 px-6 py-4">
-                            <h3 class="text-lg font-medium text-gray-900">Hours</h3>
-                            <p class="mt-1 text-gray-600">Monday - Friday: 9am - 5pm</p>
-                            <p class="mt-1 text-gray-600">Saturday: 10am - 4pm</p>
-                            <p class="mt-1 text-gray-600">Sunday: Closed</p>
-                        </div>
-                        <div class="border-t border-gray-200 px-6 py-4">
-                            <h3 class="text-lg font-medium text-gray-900">Contact</h3>
-                            <p class="mt-1 text-gray-600">Email: info@example.com</p>
-                            <p class="mt-1 text-gray-600">Phone: +1 23494 34993</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
   `;
     return div;
 }
@@ -1076,393 +937,56 @@ parcelHelpers.export(exports, "renderHome", ()=>renderHome);
 function renderHome() {
     const div = document.createElement('div');
     div.innerHTML = `
-    <section class=" w-full  bg-[#0A2025] py-9 px-8">
-      <div class="mx-auto flex  flex-col items-center lg:flex-row justify-center gap-10 py-40 max-w-[1440px] bg-no-repeat ">
-        <div class="w-[660px]  flex-col justify-center items-start gap-20 inline-flex">
-          <div class="self-stretch  flex-col justify-start items-start gap-5 flex">
-            <h1 class="self-stretch">
-              <span class="text-white text-5xl font-bold font-['Roboto']">Redefining Motion:</span><span class="text-[#3e9d26] text-5xl font-bold font-['Roboto']">The Future of Footwear is Here</span>
-            </h1>
-            <p class="self-stretch text-white text-xl font-normal font-['Roboto']">Experience unparalleled comfort and
-              innovative design with our state-of-the-art, futuristic sports shoes. Built for champions, designed for you.
-            </p>
-          </div>
-          <div class="justify-start items-center gap-5 inline-flex">
-            <div class="justify-start items-center gap-2.5 flex">
-              <p class="text-white text-sm font-normal font-['Roboto']">Step into the Future</p>
-              <div data-svg-wrapper="true" class="relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M20.7806 12.5306L14.0306 19.2806C13.8899 19.4213 13.699 19.5004 13.5 19.5004C13.301 19.5004 13.1101 19.4213 12.9694 19.2806C12.8286 19.1399 12.7496 18.949 12.7496 18.75C12.7496 18.551 12.8286 18.3601 12.9694 18.2194L18.4397 12.75H3.75C3.55109 12.75 3.36032 12.671 3.21967 12.5303C3.07902 12.3897 3 12.1989 3 12C3 11.8011 3.07902 11.6103 3.21967 11.4697C3.36032 11.329 3.55109 11.25 3.75 11.25H18.4397L12.9694 5.78061C12.8286 5.63988 12.7496 5.44901 12.7496 5.24999C12.7496 5.05097 12.8286 4.8601 12.9694 4.71936C13.1101 4.57863 13.301 4.49957 13.5 4.49957C13.699 4.49957 13.8899 4.57863 14.0306 4.71936L20.7806 11.4694C20.8504 11.539 20.9057 11.6217 20.9434 11.7128C20.9812 11.8038 21.0006 11.9014 21.0006 12C21.0006 12.0986 20.9812 12.1961 20.9434 12.2872C20.9057 12.3782 20.8504 12.461 20.7806 12.5306Z"
-                    fill="white"></path>
-                </svg></div>
-            </div>
-            <button class="px-8 py-2.5 bg-[#3e9d26] rounded-[10px] justify-center items-center gap-2.5 flex text-white text-sm font-semibold font-['Roboto']">Shop Now</button>
-          </div>
-        </div><img class="w-full max-w-[400px]" src="https://iili.io/338c9je.png" alt="">
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="w-[90%] m-auto mt-10 mb-10 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-laptop-code text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-800">Web Development</h3>
-                    <p class="text-gray-600">Custom websites and web applications tailored to your business needs with modern technologies.</p>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-mobile-alt text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-800">Mobile Apps</h3>
-                    <p class="text-gray-600">iOS and Android applications designed for optimal performance and user experience.</p>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-cloud text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-800">Cloud Solutions</h3>
-                    <p class="text-gray-600">Scalable cloud infrastructure and services to support your growing business needs.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="w-[90%] m-auto mt-10 mb-10 p-5">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-6">About Cyamunara</h2>
-                    <p class="text-gray-600 mb-4">Founded in 2015, Cyamunara has been at the forefront of digital transformation, helping businesses of all sizes navigate the complex world of technology.</p>
-                    <p class="text-gray-600 mb-6">Our team of experts combines technical expertise with business acumen to deliver solutions that drive real results.</p>
-                    <button class="bg-blue-700 text-white px-6 py-2 rounded-full font-bold hover:bg-blue-800 transition duration-300">Read Our Story</button>
-                </div>
-                <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" alt="Team working" class="rounded-lg shadow-lg w-full h-auto">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="mt-10 mb-10 bg-blue-700 text-white">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="p-6">
-                    <div class="text-4xl font-bold mb-2">150+</div>
-                    <div class="text-xl">Projects Completed</div>
-                </div>
-                <div class="p-6">
-                    <div class="text-4xl font-bold mb-2">50+</div>
-                    <div class="text-xl">Happy Clients</div>
-                </div>
-                <div class="p-6">
-                    <div class="text-4xl font-bold mb-2">12</div>
-                    <div class="text-xl">Awards Won</div>
-                </div>
-            </div>
-        </div>
-  </section>
-  <section id="testimonies" class="py-20 bg-slate-900">
-    <div class="max-w-6xl mx-8 md:mx-10 lg:mx-20 xl:mx-auto">
-        <div class="transition duration-500 ease-in-out transform scale-100 translate-x-0 translate-y-0 opacity-100">
-            <div class="mb-12 space-y-5 md:mb-16 md:text-center">
-                <div
-                    class="inline-block px-3 py-1 text-sm font-semibold text-indigo-100 rounded-lg md:text-center text-cn bg-[#202c47] bg-opacity-60 hover:cursor-pointer hover:bg-opacity-40">
-                    Words from Others
-                </div>
-                <h1 class="mb-5 text-3xl font-semibold text-white md:text-center md:text-5xl">
-                    It's not just us.
+    <section class="w-full bg-[#0A2025] py-9 px-8">
+      <div class="mx-auto flex flex-col items-center lg:flex-row justify-center gap-10 py-40 max-w-7xl">
+        <div class="flex-col justify-center items-start gap-10 inline-flex">
+            <div class="w-full lg:max-w-2xl self-stretch flex-col justify-start items-start gap-5 flex">
+                <h1 class="self-stretch">
+                <span class="text-white text-3xl md:text-5xl font-bold font-['Roboto']">Discover the Latest Gadgets, Devices & Accessories</span>
                 </h1>
-                <p class="text-xl text-gray-100 md:text-center md:text-2xl">
-                    Here's what others have to say about us.
+                <p class="self-stretch text-gray-400 text-lg font-normal font-['Roboto']">
+                    From cutting-edge smartphones to powerful laptops and must-have accessories find everything you need, all in one place. Trusted brands. Unbeatable prices. Fast delivery.</br>
                 </p>
             </div>
+            <button class=" text-white text-sm font-semibold font-['Roboto']">
+                <a href="/product" class="px-5 py-2.5 bg-gray-500 rounded-[10px]">Shop now</a>
+            </button>
+        </div><img class="w-full max-w-[400px]" src="https://iili.io/338c9je.png" alt=""></div>
+    </section>
+    <section class="py-10 bg-white">
+      <div class="">
+        <div class="text-center">
+          <div class="inline-block border-[1px] border-gray-400 py-1 px-4 rounded-2xl mb-4">Why Choose Us</div>
+          <h2 class="text-4xl font-semibold mb-4">Your Trusted Tech Partner</h2>
+          <p class="text-lg">
+            We're committed to providing you with the best technology shopping
+            experience. Here's what makes us different from the rest.
+          </p>
         </div>
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-            <ul class="space-y-8">
-                <li class="text-sm leading-6">
-                    <div class="relative group">
-                        <div
-                            class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                        </div><a href="https://twitter.com/kanyewest" class="cursor-pointer">
-                            <div
-                                class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
-                                <div class="flex items-center space-x-4"><img
-                                        src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
-                                        class="w-12 h-12 bg-center bg-cover border rounded-full" alt="Kanye West">
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Kanye West</h3>
-                                        <p class="text-gray-500 text-md">Rapper &amp; Entrepreneur</p>
-                                    </div>
-                                </div>
-                                <p class="leading-normal text-gray-300 text-md">Find God.</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li class="text-sm leading-6">
-                    <div class="relative group">
-                        <div
-                            class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                        </div><a href="https://twitter.com/tim_cook" class="cursor-pointer">
-                            <div
-                                class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
-                                <div class="flex items-center space-x-4"><img
-                                        src="https://pbs.twimg.com/profile_images/1535420431766671360/Pwq-1eJc_400x400.jpg"
-                                        class="w-12 h-12 bg-center bg-cover border rounded-full" alt="Tim Cook">
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Tim Cook</h3>
-                                        <p class="text-gray-500 text-md">CEO of Apple</p>
-                                    </div>
-                                </div>
-                                <p class="leading-normal text-gray-300 text-md">Diam quis enim lobortis scelerisque
-                                    fermentum dui faucibus in ornare. Donec pretium vulputate sapien nec sagittis
-                                    aliquam malesuada bibendum.</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li class="text-sm leading-6">
-                    <div class="relative group">
-                        <div
-                            class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                        </div><a href="https://twitter.com/kanyewest" class="cursor-pointer">
-                            <div
-                                class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
-                                <div class="flex items-center space-x-4"><img
-                                        src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
-                                        class="w-12 h-12 bg-center bg-cover border rounded-full" alt="Kanye West">
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Kanye West</h3>
-                                        <p class="text-gray-500 text-md">Rapper &amp; Entrepreneur</p>
-                                    </div>
-                                </div>
-                                <p class="leading-normal text-gray-300 text-md">Find God.</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li class="text-sm leading-6">
-                    <div class="relative group">
-                        <div
-                            class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                        </div><a href="https://twitter.com/tim_cook" class="cursor-pointer">
-                            <div
-                                class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
-                                <div class="flex items-center space-x-4"><img
-                                        src="https://pbs.twimg.com/profile_images/1535420431766671360/Pwq-1eJc_400x400.jpg"
-                                        class="w-12 h-12 bg-center bg-cover border rounded-full" alt="Tim Cook">
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Tim Cook</h3>
-                                        <p class="text-gray-500 text-md">CEO of Apple</p>
-                                    </div>
-                                </div>
-                                <p class="leading-normal text-gray-300 text-md">Diam quis enim lobortis scelerisque
-                                    fermentum dui faucibus in ornare. Donec pretium vulputate sapien nec sagittis
-                                    aliquam malesuada bibendum.</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-
-
-            <ul class="hidden space-y-8 sm:block">
-                <li class="text-sm leading-6">
-                    <div class="relative group">
-                        <div
-                            class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                        </div><a href="https://twitter.com/paraga" class="cursor-pointer">
-                            <div
-                                class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
-                                <div class="flex items-center space-x-4"><img
-                                        src="https://pbs.twimg.com/profile_images/1375285353146327052/y6jeByyD_400x400.jpg"
-                                        class="w-12 h-12 bg-center bg-cover border rounded-full" alt="Parag Agrawal">
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Parag Agrawal</h3>
-                                        <p class="text-gray-500 text-md">CEO of Twitter</p>
-                                    </div>
-                                </div>
-                                <p class="leading-normal text-gray-300 text-md">Enim neque volutpat ac tincidunt vitae
-                                    semper. Mattis aliquam faucibus purus in massa tempor. Neque vitae tempus quam
-                                    pellentesque nec. Turpis cursus in hac habitasse platea dictumst.</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li class="text-sm leading-6">
-                    <div class="relative group">
-                        <div
-                            class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                        </div><a href="https://twitter.com/tim_cook" class="cursor-pointer">
-                            <div
-                                class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
-                                <div class="flex items-center space-x-4"><img
-                                        src="https://pbs.twimg.com/profile_images/1535420431766671360/Pwq-1eJc_400x400.jpg"
-                                        class="w-12 h-12 bg-center bg-cover border rounded-full" alt="Tim Cook">
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Tim Cook</h3>
-                                        <p class="text-gray-500 text-md">CEO of Apple</p>
-                                    </div>
-                                </div>
-                                <p class="leading-normal text-gray-300 text-md">Diam quis enim lobortis scelerisque
-                                    fermentum dui faucibus in ornare. Donec pretium vulputate sapien nec sagittis
-                                    aliquam malesuada bibendum.</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li class="text-sm leading-6">
-                    <div class="relative group">
-                        <div
-                            class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                        </div><a href="https://twitter.com/paraga" class="cursor-pointer">
-                            <div
-                                class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
-                                <div class="flex items-center space-x-4"><img
-                                        src="https://pbs.twimg.com/profile_images/1375285353146327052/y6jeByyD_400x400.jpg"
-                                        class="w-12 h-12 bg-center bg-cover border rounded-full" alt="Parag Agrawal">
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Parag Agrawal</h3>
-                                        <p class="text-gray-500 text-md">CEO of Twitter</p>
-                                    </div>
-                                </div>
-                                <p class="leading-normal text-gray-300 text-md">Enim neque volutpat ac tincidunt vitae
-                                    semper. Mattis aliquam faucibus purus in massa tempor. Neque vitae tempus quam
-                                    pellentesque nec. Turpis cursus in hac habitasse platea dictumst.</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li class="text-sm leading-6">
-                    <div class="relative group">
-                        <div
-                            class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                        </div><a href="https://twitter.com/tim_cook" class="cursor-pointer">
-                            <div
-                                class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
-                                <div class="flex items-center space-x-4"><img
-                                        src="https://pbs.twimg.com/profile_images/1535420431766671360/Pwq-1eJc_400x400.jpg"
-                                        class="w-12 h-12 bg-center bg-cover border rounded-full" alt="Tim Cook">
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Tim Cook</h3>
-                                        <p class="text-gray-500 text-md">CEO of Apple</p>
-                                    </div>
-                                </div>
-                                <p class="leading-normal text-gray-300 text-md">Diam quis enim lobortis scelerisque
-                                    fermentum dui faucibus in ornare. Donec pretium vulputate sapien nec sagittis
-                                    aliquam malesuada bibendum.</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-
-
-            <ul class="hidden space-y-8 lg:block">
-                <li class="text-sm leading-6">
-                    <div class="relative group">
-                        <div
-                            class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                        </div><a href="https://twitter.com/satyanadella" class="cursor-pointer">
-                            <div
-                                class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
-                                <div class="flex items-center space-x-4"><img
-                                        src="https://pbs.twimg.com/profile_images/1221837516816306177/_Ld4un5A_400x400.jpg"
-                                        class="w-12 h-12 bg-center bg-cover border rounded-full" alt="Satya Nadella">
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Satya Nadella</h3>
-                                        <p class="text-gray-500 text-md">CEO of Microsoft</p>
-                                    </div>
-                                </div>
-                                <p class="leading-normal text-gray-300 text-md">Tortor dignissim convallis aenean et
-                                    tortor at. At ultrices mi tempus imperdiet nulla malesuada. Id cursus metus aliquam
-                                    eleifend mi. Quis ipsum suspendisse ultrices gravida dictum fusce ut.</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li class="text-sm leading-6">
-                    <div class="relative group">
-                        <div
-                            class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                        </div><a href="https://twitter.com/dan_schulman" class="cursor-pointer">
-                            <div
-                                class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
-                                <div class="flex items-center space-x-4"><img
-                                        src="https://pbs.twimg.com/profile_images/516916920482672641/3jCeLgFb_400x400.jpeg"
-                                        class="w-12 h-12 bg-center bg-cover border rounded-full" alt="Dan Schulman">
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Dan Schulman</h3>
-                                        <p class="text-gray-500 text-md">CEO of PayPal</p>
-                                    </div>
-                                </div>
-                                <p class="leading-normal text-gray-300 text-md">Quam pellentesque nec nam aliquam sem
-                                    et tortor consequat id. Enim sit amet venenatis urna cursus.</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li class="text-sm leading-6">
-                    <div class="relative group">
-                        <div
-                            class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                        </div><a href="https://twitter.com/satyanadella" class="cursor-pointer">
-                            <div
-                                class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
-                                <div class="flex items-center space-x-4"><img
-                                        src="https://pbs.twimg.com/profile_images/1221837516816306177/_Ld4un5A_400x400.jpg"
-                                        class="w-12 h-12 bg-center bg-cover border rounded-full" alt="Satya Nadella">
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Satya Nadella</h3>
-                                        <p class="text-gray-500 text-md">CEO of Microsoft</p>
-                                    </div>
-                                </div>
-                                <p class="leading-normal text-gray-300 text-md">Tortor dignissim convallis aenean et
-                                    tortor at. At ultrices mi tempus imperdiet nulla malesuada. Id cursus metus aliquam
-                                    eleifend mi. Quis ipsum suspendisse ultrices gravida dictum fusce ut.</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li class="text-sm leading-6">
-                    <div class="relative group">
-                        <div
-                            class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                        </div><a href="https://twitter.com/dan_schulman" class="cursor-pointer">
-                            <div
-                                class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
-                                <div class="flex items-center space-x-4"><img
-                                        src="https://pbs.twimg.com/profile_images/516916920482672641/3jCeLgFb_400x400.jpeg"
-                                        class="w-12 h-12 bg-center bg-cover border rounded-full" alt="Dan Schulman">
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Dan Schulman</h3>
-                                        <p class="text-gray-500 text-md">CEO of PayPal</p>
-                                    </div>
-                                </div>
-                                <p class="leading-normal text-gray-300 text-md">Quam pellentesque nec nam aliquam sem
-                                    et tortor consequat id. Enim sit amet venenatis urna cursus.</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-
+        <div class="grid grid-cols-4" id="features-container">
 
         </div>
-    </div>
+      </div>
+    </section>
+    <section id="categories" class="py-10">
+        <div class="">
+            <div class="">
+                <div class="">Shop by Category</div>
+                <h2 class="">Find Your Perfect Gadget</h2>
+                <p class="">
+                    Browse through our carefully curated categories and discover the
+                    latest in technology. From everyday essentials to cutting-edge
+                    innovations.
+                </p>
+            </div>
+            <div class="grid" id="categories-container">
+
+            </div>
+            <div class="text-center">
+                <a href="#products" class="btn btn-outline px-5 py-2 rounded-xl bg-blue-500">View All Categories</a>
+            </div>
+        </div>
+    </section>
   `;
     return div;
 }
@@ -1474,14 +998,24 @@ parcelHelpers.export(exports, "renderNotFound", ()=>renderNotFound);
 function renderNotFound() {
     const div = document.createElement('div');
     div.innerHTML = `
-    <section class="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-gray-100">
-        <div class="text-center animate-fadeIn">
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/022/310/933/small_2x/404-error-page-not-found-3d-illustration-png.png" alt="404 Illustration" class="mx-auto w-80 animate-[float_3s_infinite] shadow-xl rounded-lg">
+    <section class="flex items-center justify-center min-h-screen">
+        <div class="text-center">
             <h1 class="text-7xl font-extrabold text-blue-700 mt-6">Looks Like You're Lost!</h1>
             <p class="text-xl text-gray-700 mt-2">We can't seem to find the page you're looking for.</p>
-            <a href="/" class="mt-6 inline-block bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg transform transition hover:scale-105 hover:bg-blue-700">Return Home</a>
         </div>
     </section>
+  `;
+    return div;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kgp9M":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "renderProduct", ()=>renderProduct);
+function renderProduct() {
+    const div = document.createElement('div');
+    div.innerHTML = `
+    
   `;
     return div;
 }

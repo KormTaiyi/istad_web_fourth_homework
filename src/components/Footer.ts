@@ -2,83 +2,92 @@ export function Footer(): HTMLElement {
   const footer = document.createElement('footer');
   footer.className = 'bg-white dark:bg-gray-800 flex justify-center items-center w-full p-5';
   footer.innerHTML = `
-    <div class="bg-white text-gray-700 border-t border-gray-200">
-  <div class="container mx-auto px-6 py-8">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-      <!-- Logo & Description -->
-      <div>
-        <h2 class="text-xl font-semibold flex items-center space-x-2">
-          <span class="text-blue-600 text-2xl">ES</span> <span>BAZAR</span>
-        </h2>
-        <p class="mt-2 text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur. Imperdiet aliquet faucibus malesuada vitae.
-        </p>
-        <p class="mt-2 text-sm text-gray-600">
-          <span class="font-semibold">(219) 555-0114</span>
-        </p>
-        <!-- Social Icons -->
-        <div class="flex space-x-3 mt-3">
-          <a href="#" class="text-blue-600"><i class="fab fa-facebook"></i></a>
-          <a href="#" class="text-red-600"><i class="fab fa-reddit"></i></a>
-          <a href="#" class="text-green-500"><i class="fab fa-whatsapp"></i></a>
-          <a href="#" class="text-pink-600"><i class="fab fa-pinterest"></i></a>
+  <footer class="bg-white w-full dark:bg-gray-900">
+    <div class=" w-full">
+      <div class="mx-auto max-w-7xl grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
+          <ul class="text-gray-500 dark:text-gray-400 font-medium">
+            <li class="mb-4">
+              <a href="#" class=" hover:underline">About</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Careers</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Brand Center</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Blog</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help center</h2>
+          <ul class="text-gray-500 dark:text-gray-400 font-medium">
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Discord Server</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Twitter</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Facebook</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+          <ul class="text-gray-500 dark:text-gray-400 font-medium">
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Privacy Policy</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Licensing</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h2>
+          <ul class="text-gray-500 dark:text-gray-400 font-medium">
+            <li class="mb-4">
+              <a href="#" class="hover:underline">iOS</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Android</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Windows</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">MacOS</a>
+            </li>
+          </ul>
         </div>
       </div>
-      
-      <!-- My Account -->
-      <div>
-        <h3 class="font-semibold mb-2">My Account</h3>
-        <ul class="text-sm space-y-2">
-          <li><a href="#" class="hover:text-blue-600">My Account</a></li>
-          <li><a href="#" class="hover:text-blue-600">Order History</a></li>
-          <li><a href="#" class="hover:text-blue-600">Shopping Cart</a></li>
-          <li><a href="#" class="hover:text-blue-600">Wishlist</a></li>
-        </ul>
-      </div>
-      
-      <!-- Help Section -->
-      <div>
-        <h3 class="font-semibold mb-2">Helps</h3>
-        <ul class="text-sm space-y-2">
-          <li><a href="#" class="hover:text-blue-600">Contact</a></li>
-          <li><a href="#" class="hover:text-blue-600">FAQs</a></li>
-          <li><a href="#" class="hover:text-blue-600">Terms & Condition</a></li>
-          <li><a href="#" class="hover:text-blue-600">Privacy Policy</a></li>
-        </ul>
-      </div>
-      
-      <!-- Categories -->
-      <div>
-        <h3 class="font-semibold mb-2">Categories</h3>
-        <ul class="text-sm space-y-2">
-          <li><a href="#" class="hover:text-blue-600">Printers</a></li>
-          <li><a href="#" class="hover:text-blue-600">Cartridge</a></li>
-          <li><a href="#" class="hover:text-blue-600">Ink</a></li>
-        </ul>
+      <div class="bg-gray-100 dark:bg-gray-700">
+      <div class="px-4 py-6 max-w-7xl mx-auto md:flex md:items-center md:justify-between">
+        <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2023 <a href="">Electronic store</a>. All Rights Reserved.</span>
+        <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
+          <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+            <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/></svg>
+            <span class="sr-only">Facebook page</span>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/></svg>
+            <span class="sr-only">GitHub account</span>
+          </a>
+        </div>
       </div>
     </div>
-    
-    <!-- Payment and App Download -->
-    <div class="flex flex-col md:flex-row justify-between items-center mt-6">
-      <div class="flex space-x-2">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-v52tLnvL3FEjfxjPvZWbvUMYvVUtAm9R6A&s" alt="Google Play" class="h-10">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJgk5tpxJC_1CAnsXwo2VvBGyQGI-o5c1PJw&s" alt="App Store" class="h-10">
-      </div>
-      <div class="flex space-x-2 mt-4 md:mt-0">
-        <img src="https://www.logo.wine/a/logo/Apple_Pay/Apple_Pay-White-Dark-Background-Logo.wine.svg" alt="Apple Pay" class="h-[30px] w-10 rounded-md">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSynWEtLag--sQ4XlfTwHh9_DAnfcglW7C3iw&s" alt="Visa" class="h-[30px] w-10 rounded-md">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6mJsEDg1aR_JCFb3ohk2nCxjgSvkWnpmlKg&s" alt="Mastercard" class="h-[30px] w-10 rounded-md">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQveKfGcJ1tSEY8bLg52DxvVrFDJXmxXJgv1Q&s" alt="discover" class="h-[30px] w-10 rounded-md">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDS0zyuJdI4e7E1VGaNDAVtRn3fGTzr0PBOA&s" alt="Secure Payment" class="h-[30px] w-10 rounded-md">
-      </div>
-    </div>
-    
-    <!-- Copyright -->
-    <div class="text-center text-sm text-gray-500 mt-6 border-t pt-4">
-      ExpertSquad © 2025. All Rights Reserved.
-    </div>
-  </div>
-</div>
-  `;
+  </footer>`;
   return footer;
 }
