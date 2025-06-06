@@ -1,21 +1,18 @@
-export function Card(): HTMLElement {
-  const card = document.createElement('footer');
-//   card.className = 'bg-white dark:bg-gray-800 flex justify-center items-center w-full p-5';
+import { Product } from '../api';
+
+export function Card(product: Product): HTMLElement {
+  const card = document.createElement('div');
+  card.className = 'flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70';
+
   card.innerHTML = `
-    <div class="flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
-        <img class="w-full h-auto rounded-t-xl" src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80" alt="Card Image">
-        <div class="p-4 md:p-5">
-            <h3 class="text-lg font-bold text-gray-800 dark:text-white">
-            Card title
-            </h3>
-            <p class="mt-1 text-gray-500 dark:text-neutral-400">
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-            </p>
-            <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="#">
-            Go somewhere
-            </a>
-        </div>
+    <img class="w-full h-48 object-cover rounded-t-xl" src="${product.image}" alt="${product.title}">
+    <div class="p-4 md:p-5">
+      <h3 class="text-lg font-bold text-gray-800 dark:text-white">${product.title}</h3>
+      <p class="mt-1 text-gray-500 dark:text-neutral-400">${product.description.slice(0, 100)}...</p>
+      <p class="mt-1 text-sm text-blue-600 font-semibold">$${product.price}</p>
+      <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700" href="#">Buy Now</a>
     </div>
   `;
+
   return card;
 }

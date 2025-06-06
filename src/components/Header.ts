@@ -1,6 +1,6 @@
 export function Header(): HTMLElement {
   const header = document.createElement('header');
-  header.className = 'bg-blue-900 text-white';
+  header.className = 'bg-blue-500 text-white';
   header.innerHTML = `
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5">
             <div class="flex items-center justify-between">

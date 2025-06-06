@@ -706,7 +706,7 @@ function renderRoute() {
             contentFn = (0, _about.renderAbout);
             break;
         case '/product':
-            contentFn = (0, _products.renderProduct);
+            contentFn = (0, _products.renderProducts);
             break;
         case '/contact':
             contentFn = (0, _contact.renderContact);
@@ -748,16 +748,13 @@ function Footer() {
           <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
           <ul class="text-gray-500 dark:text-gray-400 font-medium">
             <li class="mb-4">
-              <a href="#" class=" hover:underline">About</a>
+              <a href="/about" class=" hover:underline">About</a>
             </li>
             <li class="mb-4">
-              <a href="#" class="hover:underline">Careers</a>
+              <a href="/product" class="hover:underline">Product</a>
             </li>
             <li class="mb-4">
-              <a href="#" class="hover:underline">Brand Center</a>
-            </li>
-            <li class="mb-4">
-              <a href="#" class="hover:underline">Blog</a>
+              <a href="/contact" class="hover:underline">Contact</a>
             </li>
           </ul>
         </div>
@@ -812,15 +809,15 @@ function Footer() {
       </div>
       <div class="bg-gray-100 dark:bg-gray-700">
       <div class="px-4 py-6 max-w-7xl mx-auto md:flex md:items-center md:justify-between">
-        <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">\xa9 2023 <a href="">Electronic store</a>. All Rights Reserved.</span>
+        <span class="text-sm text-gray-200 dark:text-gray-300 sm:text-center">\xa9 2023 <a href="">Electronic store</a>. All Rights Reserved.</span>
         <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
-          <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+          <a href="#" class="text-gray-200 hover:text-gray-900 dark:hover:text-white">
+            <svg class="h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
             <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/></svg>
             <span class="sr-only">Facebook page</span>
           </a>
-          <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <a href="#" class="text-gray-200 hover:text-gray-900 dark:hover:text-white">
+            <svg class=" h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/></svg>
             <span class="sr-only">GitHub account</span>
           </a>
@@ -867,7 +864,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Header", ()=>Header);
 function Header() {
     const header = document.createElement('header');
-    header.className = 'bg-blue-900 text-white';
+    header.className = 'bg-blue-500 text-white';
     header.innerHTML = `
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5">
             <div class="flex items-center justify-between">
@@ -937,53 +934,61 @@ parcelHelpers.export(exports, "renderHome", ()=>renderHome);
 function renderHome() {
     const div = document.createElement('div');
     div.innerHTML = `
-    <section class="w-full bg-[#0A2025] py-9 px-8">
+    <section class="w-full bg-gray-700 py-9 px-8">
       <div class="mx-auto flex flex-col items-center lg:flex-row justify-center gap-10 py-40 max-w-7xl">
         <div class="flex-col justify-center items-start gap-10 inline-flex">
-            <div class="w-full lg:max-w-2xl self-stretch flex-col justify-start items-start gap-5 flex">
-                <h1 class="self-stretch">
-                <span class="text-white text-3xl md:text-5xl font-bold font-['Roboto']">Discover the Latest Gadgets, Devices & Accessories</span>
-                </h1>
-                <p class="self-stretch text-gray-400 text-lg font-normal font-['Roboto']">
-                    From cutting-edge smartphones to powerful laptops and must-have accessories find everything you need, all in one place. Trusted brands. Unbeatable prices. Fast delivery.</br>
-                </p>
-            </div>
-            <button class=" text-white text-sm font-semibold font-['Roboto']">
-                <a href="/product" class="px-5 py-2.5 bg-gray-500 rounded-[10px]">Shop now</a>
-            </button>
-        </div><img class="w-full max-w-[400px]" src="https://iili.io/338c9je.png" alt=""></div>
-    </section>
-    <section class="py-10 bg-white">
-      <div class="">
-        <div class="text-center">
-          <div class="inline-block border-[1px] border-gray-400 py-1 px-4 rounded-2xl mb-4">Why Choose Us</div>
-          <h2 class="text-4xl font-semibold mb-4">Your Trusted Tech Partner</h2>
-          <p class="text-lg">
-            We're committed to providing you with the best technology shopping
-            experience. Here's what makes us different from the rest.
-          </p>
+          <div class="w-full lg:max-w-2xl self-stretch flex-col justify-start items-start gap-5 flex">
+            <h1 class="self-stretch">
+            <span class="text-white text-3xl md:text-5xl font-bold font-['Roboto']">Discover the Latest Gadgets, Devices & Accessories</span>
+            </h1>
+            <p class="self-stretch text-gray-400 text-lg font-normal font-['Roboto']">
+                From cutting-edge smartphones to powerful laptops and must-have accessories find everything you need, all in one place. Trusted brands. Unbeatable prices. Fast delivery.</br>
+            </p>
+          </div>
+          <button class=" text-white text-sm font-semibold font-['Roboto']">
+            <a href="/product" class="px-5 py-2.5 bg-gray-500 rounded-[10px]">Shop now</a>
+          </button>
         </div>
-        <div class="grid grid-cols-4" id="features-container">
-
-        </div>
+        <img class="w-full max-w-[400px]" src="https://www.att.com/scmsassets/global/accessories/audio/apple/airpods-max/defaultimage/pink-hero-zoom.png" alt="">
       </div>
     </section>
-    <section id="categories" class="py-10">
+    <section class="py-10 bg-gray-100">
+        <div class="text-center mb-10">
+          <div class="inline-block border-[1px] border-gray-400 py-1 px-4 rounded-2xl mb-4">Why Choose Us</div>
+          <h2 class="text-4xl font-semibold mb-4">Your Trusted Tech Partner</h2>
+          <p>We're committed to providing you with the best technology shopping experience.</br> Here's what makes us different from the rest.</p>
+        </div>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3 text-center px-4 sm:px-6">
+          <div class="px-2 py-6 shadow-2xl rounded-xl">
+            <div class="text-3xl text-red-500"><i class="fa-solid fa-heart"></i></div>
+            <h1 class="text-xl font-semibold my-2">Customer Satisfaction</h1>
+            <p>Over 50,000 happy customers with 4.9/5 rating and hassle-free returns.</p>
+          </div>
+          <div class="px-2 py-6 shadow-2xl rounded-xl">
+            <div class="text-3xl text-green-500"><i class="fa-solid fa-phone"></i></div>
+            <h1 class="text-xl font-semibold my-2">24/7 Support</h1>
+            <p>Round-the-clock customer service to help you with any questions or concerns.</p>
+          </div>
+          <div class="px-2 py-6 shadow-2xl rounded-xl">
+            <div class="text-3xl text-blue-500"><i class="fa-solid fa-truck-fast"></i></div>
+            <h1 class="text-xl font-semibold my-2">Fast Delivery</h1>
+            <p>Get your gadgets delivered within 24-48 hours with our express shipping service.</p>
+          </div>
+        </div>
+    </section>
+    <section class="py-10">
         <div class="">
-            <div class="">
-                <div class="">Shop by Category</div>
-                <h2 class="">Find Your Perfect Gadget</h2>
-                <p class="">
-                    Browse through our carefully curated categories and discover the
-                    latest in technology. From everyday essentials to cutting-edge
-                    innovations.
-                </p>
+            <div class="mb-10 text-center">
+                <div class="inline-block border-[1px] border-gray-400 py-1 px-4 rounded-2xl mb-4">Shop by Category</div>
+                <h2 class="text-4xl font-semibold mb-4">Find Your Perfect Gadget</h2>
+                <p> Browse through our carefully curated categories and discover the latest in technology.</br> From everyday essentials to cutting-edge innovations.</p>
             </div>
-            <div class="grid" id="categories-container">
-
+            <div class="mb-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 px-2 gap-4">
+              
+            
             </div>
             <div class="text-center">
-                <a href="#products" class="btn btn-outline px-5 py-2 rounded-xl bg-blue-500">View All Categories</a>
+              <a href="/product" class="px-5 py-2 rounded border-blue-500 text-blue-500 border-2">View All Categories <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -1011,13 +1016,55 @@ function renderNotFound() {
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kgp9M":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "renderProduct", ()=>renderProduct);
-function renderProduct() {
-    const div = document.createElement('div');
-    div.innerHTML = `
-    
+parcelHelpers.export(exports, "renderProducts", ()=>renderProducts);
+var _api = require("../api");
+var _card = require("../components/Card");
+async function renderProducts() {
+    const container = document.createElement('div');
+    container.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4';
+    try {
+        const products = await (0, _api.fetchProducts)();
+        products.forEach((product)=>{
+            const cardElement = (0, _card.Card)(product);
+            container.appendChild(cardElement);
+        });
+    } catch (error) {
+        console.error('Error fetching products:', error);
+        const errorMsg = document.createElement('p');
+        errorMsg.textContent = 'Failed to load products.';
+        container.appendChild(errorMsg);
+    }
+    return container;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","../api":"hKNQC","../components/Card":"kAYvp"}],"hKNQC":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "fetchProducts", ()=>fetchProducts);
+async function fetchProducts() {
+    const response = await fetch('https://fakestoreapi.in/api/products');
+    if (!response.ok) throw new Error('Failed to fetch products');
+    const data = await response.json();
+    return data;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kAYvp":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Card", ()=>Card);
+function Card(product) {
+    const card = document.createElement('div');
+    card.className = 'flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70';
+    card.innerHTML = `
+    <img class="w-full h-48 object-cover rounded-t-xl" src="${product.image}" alt="${product.title}">
+    <div class="p-4 md:p-5">
+      <h3 class="text-lg font-bold text-gray-800 dark:text-white">${product.title}</h3>
+      <p class="mt-1 text-gray-500 dark:text-neutral-400">${product.description.slice(0, 100)}...</p>
+      <p class="mt-1 text-sm text-blue-600 font-semibold">$${product.price}</p>
+      <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700" href="#">Buy Now</a>
+    </div>
   `;
-    return div;
+    return card;
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["3dtlh","gH3Lb"], "gH3Lb", "parcelRequire7711", {})
