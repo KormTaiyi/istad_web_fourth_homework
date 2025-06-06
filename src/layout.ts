@@ -1,14 +1,15 @@
-import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
+export function createLayout(contentFn: () => Promise<HTMLElement>) {
+  const app = document.getElementById('app');
+  if (!app) return;
 
-export function createLayout(contentFn: () => HTMLElement): void {
-  const app = document.getElementById('app')!;
   app.innerHTML = '';
+  app.appendChild(Header());
 
-  const header = Header();
-  const content = contentFn();
-  const footer = Footer();
-
-  app.append(header, content, footer);
+  contentFn().then(content => {
+    app.appendChild(content);
+    app.appendChild(Footer());
+  });
 }

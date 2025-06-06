@@ -1,7 +1,29 @@
-import { Card } from "../components/Card";
+import { fetchProducts } from "../api";
+import { Card, Product } from "../components/Card";
 
 export async function renderHome() {
-  const cart = await Card();
+  const res = await fetchProducts();
+  const products: Product[] = Array.isArray(res) ? res : res.products;
+
+  const categories = Array.from(new Set(products.map(p => p.category).filter(Boolean)));
+
+  const categoryCards: HTMLDivElement[] = categories
+    .map(category => {
+      const product = products.find(p => p.category === category);
+      if (!product) return null;
+      const card = document.createElement("div");
+      card.className = "bg-white border border-gray-200 shadow-xl rounded-xl";
+      card.innerHTML = `
+        <img class="w-full h-52 object-contain rounded-t-xl" src="${product.image}" alt="${product.title}">
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">${category}</h3>
+          <p class="mt-1 text-gray-500">${product.title.slice(0,40)}...</p>
+          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700" href="/product?category=${encodeURIComponent(category ?? '')}">Shop ${category ?? ''}</a>
+        </div>
+      `;
+      return card;
+    })
+    .filter((card): card is HTMLDivElement => card !== null);
 
   const div = document.createElement("div");
 
@@ -18,7 +40,7 @@ export async function renderHome() {
             </p>
           </div>
           <button class=" text-white text-sm font-semibold font-['Roboto']">
-            <a href="/product" class="px-5 py-2.5 bg-gray-500 rounded-[10px]">Shop now</a>
+            <a href="/product" data-link class="px-5 py-2.5 bg-gray-500 rounded-[10px]">Shop now</a>
           </button>
         </div>
         <img class="w-full max-w-[400px]" src="https://www.att.com/scmsassets/global/accessories/audio/apple/airpods-max/defaultimage/pink-hero-zoom.png" alt="">
@@ -50,30 +72,36 @@ export async function renderHome() {
         </div>
     </section>
     <section class="py-10">
-        <div>
-            <div class="mb-10 text-center">
-                <div class="inline-block border-[1px] border-gray-400 py-1 px-4 rounded-2xl mb-4">Shop by Category</div>
-                <h2 class="text-4xl font-semibold mb-4">Find Your Perfect Gadget</h2>
-                <p>Browse through our carefully curated categories and discover the latest in technology.</br> From everyday essentials to cutting-edge innovations.</p>
-            </div>
-            <div class="mb-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 px-2 gap-4" id="card-container">
-              
-            </div>
-            <div class="text-center">
-              <a href="/product" class="px-5 py-2 rounded border-blue-500 text-blue-500 border-2">View All Categories <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
+      <div class="w-full">
+        <div class="mb-10 text-center">
+          <div class="inline-block border-[1px] border-gray-400 py-1 px-4 rounded-2xl mb-4">Shop by Category</div>
+          <h2 class="text-4xl font-semibold mb-4">Find Your Perfect Gadget</h2>
+          <p>Browse through our carefully curated categories and discover the latest in technology.<br> From everyday essentials to cutting-edge innovations.</p>
         </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-3 gap-4" id="category-container"></div>
+        <div class="text-center mt-10">
+          <a href="/product" class="px-5 py-2 rounded border-blue-500 hover:text-blue-900 text-blue-500 border-2">View All Categories <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
     </section>
   `;
 
-  const cardContainer = div.querySelector("#card-container");
-  if (cardContainer) {
-    cardContainer.appendChild(cart);
+  const categoryContainer = div.querySelector("#category-container");
+  if (categoryContainer) {
+    categoryCards.forEach(card => categoryContainer.appendChild(card));
   }
+
   return div;
 }
 
 renderHome().then(home => {
   document.body.innerHTML = "";
   document.body.appendChild(home);
+});
+
+document.addEventListener('click', function(e) {
+  const target = e.target as HTMLElement;
+  if (target.tagName === 'A' && target.hasAttribute('data-link')) {
+    e.preventDefault();
+  }
 });

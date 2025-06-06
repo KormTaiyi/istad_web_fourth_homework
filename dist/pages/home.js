@@ -13,7 +13,7 @@ exports.renderHome = renderHome;
 const Card_1 = require("../components/Card");
 function renderHome() {
     return __awaiter(this, void 0, void 0, function* () {
-        const cart = yield (0, Card_1.Card)("smartphones");
+        const cart = yield (0, Card_1.Card)();
         const div = document.createElement("div");
         div.innerHTML = `
     <section class="w-full bg-gray-700 py-9 px-8">
@@ -67,7 +67,7 @@ function renderHome() {
                 <p>Browse through our carefully curated categories and discover the latest in technology.</br> From everyday essentials to cutting-edge innovations.</p>
             </div>
             <div class="mb-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 px-2 gap-4" id="card-container">
-              ${cart.outerHTML}
+              
             </div>
             <div class="text-center">
               <a href="/product" class="px-5 py-2 rounded border-blue-500 text-blue-500 border-2">View All Categories <i class="fa-solid fa-arrow-right"></i></a>
@@ -75,10 +75,14 @@ function renderHome() {
         </div>
     </section>
   `;
+        const cardContainer = div.querySelector("#card-container");
+        if (cardContainer) {
+            cardContainer.appendChild(cart);
+        }
         return div;
     });
 }
-renderHome().then((home) => {
+renderHome().then(home => {
     document.body.innerHTML = "";
     document.body.appendChild(home);
 });

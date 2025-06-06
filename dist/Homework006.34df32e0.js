@@ -700,40 +700,37 @@ function renderRoute() {
     let contentFn;
     switch(pathname){
         case '/':
-            contentFn = (0, _home.renderHome);
+            contentFn = ()=>Promise.resolve((0, _home.renderHome)());
             break;
         case '/about':
-            contentFn = (0, _about.renderAbout);
+            contentFn = ()=>Promise.resolve((0, _about.renderAbout)());
             break;
         case '/product':
-            contentFn = (0, _products.renderProducts);
+            contentFn = ()=>Promise.resolve((0, _products.renderProducts)());
             break;
         case '/contact':
-            contentFn = (0, _contact.renderContact);
+            contentFn = ()=>Promise.resolve((0, _contact.renderContact)());
             break;
         default:
-            contentFn = (0, _notfound.renderNotFound);
+            contentFn = ()=>Promise.resolve((0, _notfound.renderNotFound)());
             break;
     }
     (0, _layout.createLayout)(contentFn);
 }
 
-},{"./layout":"aUJjy","./pages/about":"d8csY","./pages/contact":"a0XsK","./pages/home":"l0Soh","./pages/notfound":"20OKX","./pages/products":"kgp9M","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aUJjy":[function(require,module,exports,__globalThis) {
+},{"./pages/about":"d8csY","./pages/contact":"a0XsK","./pages/home":"l0Soh","./pages/notfound":"20OKX","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./pages/products":"kgp9M","./layout":"aUJjy"}],"d8csY":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createLayout", ()=>createLayout);
-var _footer = require("./components/Footer");
-var _header = require("./components/Header");
-function createLayout(contentFn) {
-    const app = document.getElementById('app');
-    app.innerHTML = '';
-    const header = (0, _header.Header)();
-    const content = contentFn();
-    const footer = (0, _footer.Footer)();
-    app.append(header, content, footer);
+parcelHelpers.export(exports, "renderAbout", ()=>renderAbout);
+function renderAbout() {
+    const div = document.createElement('div');
+    div.innerHTML = `
+
+  `;
+    return div;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./components/Footer":"11wJK","./components/Header":"7fu8U"}],"jnFvT":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -763,144 +760,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"11wJK":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Footer", ()=>Footer);
-function Footer() {
-    const footer = document.createElement('footer');
-    footer.className = 'bg-white dark:bg-gray-800 flex justify-center items-center w-full';
-    footer.innerHTML = `
-  <footer class="bg-white w-full dark:bg-gray-900">
-    <div class="w-full">
-      <div class="mx-auto max-w-7xl grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
-        <div>
-          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
-          <ul class="text-gray-500 dark:text-gray-400 font-medium">
-            <li class="mb-4">
-              <a href="/about" class=" hover:underline">About</a>
-            </li>
-            <li class="mb-4">
-              <a href="/product" class="hover:underline">Product</a>
-            </li>
-            <li class="mb-4">
-              <a href="/contact" class="hover:underline">Contact</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help center</h2>
-          <ul class="text-gray-500 dark:text-gray-400 font-medium">
-            <li class="mb-4">
-              <a href="#" class="hover:underline">Discord Server</a>
-            </li>
-            <li class="mb-4">
-              <a href="#" class="hover:underline">Twitter</a>
-            </li>
-            <li class="mb-4">
-              <a href="#" class="hover:underline">Facebook</a>
-            </li>
-            <li class="mb-4">
-              <a href="#" class="hover:underline">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
-          <ul class="text-gray-500 dark:text-gray-400 font-medium">
-            <li class="mb-4">
-              <a href="#" class="hover:underline">Privacy Policy</a>
-            </li>
-            <li class="mb-4">
-              <a href="#" class="hover:underline">Licensing</a>
-            </li>
-            <li class="mb-4">
-              <a href="#" class="hover:underline">Terms &amp; Conditions</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h2>
-          <ul class="text-gray-500 dark:text-gray-400 font-medium">
-            <li class="mb-4">
-              <a href="#" class="hover:underline">iOS</a>
-            </li>
-            <li class="mb-4">
-              <a href="#" class="hover:underline">Android</a>
-            </li>
-            <li class="mb-4">
-              <a href="#" class="hover:underline">Windows</a>
-            </li>
-            <li class="mb-4">
-              <a href="#" class="hover:underline">MacOS</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="bg-gray-100 py-6 px-2 dark:bg-gray-700">
-      <span class="text-sm text-left text-gray-200 dark:text-gray-300 sm:text-center">\xa9 2023 <a href="">Electronic store</a>. All Rights Reserved.</span></div>
-    </div>
-  </footer>`;
-    return footer;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7fu8U":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Header", ()=>Header);
-function Header() {
-    const header = document.createElement('header');
-    header.className = 'bg-blue-500 text-white';
-    header.innerHTML = `
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5">
-            <div class="flex items-center justify-between">
-                <div class="flex-shrink-0">
-                    <a href="/" class="text-2xl font-bold">Electronic store</a>
-                </div>
-                <nav class="hidden md:flex space-x-10 text-lg">
-                    <a href="/" data-link class="hover:text-gray-300 transition-all">Home</a>
-                    <a href="/about" data-link class="hover:text-gray-300 transition-all">About Us</a>
-                    <a href="/product" data-link class="hover:text-gray-300 transition-all">Products</a>
-                    <a href="/contact" data-link class="hover:text-gray-300 transition-all">Contact</a>
-                </nav>
-                <div class="md:hidden flex items-center">
-                    <button id="menu-button" class="text-white focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <div id="mobile-menu" class="md:hidden mt-5 hidden space-y-4">
-            <a href="/" class="block text-lg hover:text-gray-300 transition-all">Home</a>
-            <a href="/about" class="block text-lg hover:text-gray-300 transition-all">About Us</a>
-            <a href="/product" class="block text-lg hover:text-gray-300 transition-all">Products</a>
-            <a href="/contact" class="block text-lg hover:text-gray-300 transition-all">Contact</a>
-            </div>
-        </div>
-  `;
-    const menuButton = header.querySelector('#menu-button');
-    const mobileMenu = header.querySelector('#mobile-menu');
-    if (menuButton && mobileMenu) menuButton.addEventListener('click', ()=>{
-        mobileMenu.classList.toggle('hidden');
-    });
-    return header;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"d8csY":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "renderAbout", ()=>renderAbout);
-function renderAbout() {
-    const div = document.createElement('div');
-    div.innerHTML = `
-
-  `;
-    return div;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"a0XsK":[function(require,module,exports,__globalThis) {
+},{}],"a0XsK":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "renderContact", ()=>renderContact);
@@ -917,9 +777,26 @@ function renderContact() {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "renderHome", ()=>renderHome);
-var _card = require("../components/Card");
+var _api = require("../api");
 async function renderHome() {
-    const cart = await (0, _card.Card)();
+    const res = await (0, _api.fetchProducts)();
+    const products = Array.isArray(res) ? res : res.products;
+    const categories = Array.from(new Set(products.map((p)=>p.category).filter(Boolean)));
+    const categoryCards = categories.map((category)=>{
+        const product = products.find((p)=>p.category === category);
+        if (!product) return null;
+        const card = document.createElement("div");
+        card.className = "bg-white border border-gray-200 shadow-xl rounded-xl";
+        card.innerHTML = `
+        <img class="w-full h-52 object-contain rounded-t-xl" src="${product.image}" alt="${product.title}">
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">${category}</h3>
+          <p class="mt-1 text-gray-500">${product.title.slice(0, 40)}...</p>
+          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700" href="/product?category=${encodeURIComponent(category ?? '')}">Shop ${category ?? ''}</a>
+        </div>
+      `;
+        return card;
+    }).filter((card)=>card !== null);
     const div = document.createElement("div");
     div.innerHTML = `
     <section class="w-full bg-gray-700 py-9 px-8">
@@ -934,7 +811,7 @@ async function renderHome() {
             </p>
           </div>
           <button class=" text-white text-sm font-semibold font-['Roboto']">
-            <a href="/product" class="px-5 py-2.5 bg-gray-500 rounded-[10px]">Shop now</a>
+            <a href="/product" data-link class="px-5 py-2.5 bg-gray-500 rounded-[10px]">Shop now</a>
           </button>
         </div>
         <img class="w-full max-w-[400px]" src="https://www.att.com/scmsassets/global/accessories/audio/apple/airpods-max/defaultimage/pink-hero-zoom.png" alt="">
@@ -966,71 +843,33 @@ async function renderHome() {
         </div>
     </section>
     <section class="py-10">
-        <div>
-            <div class="mb-10 text-center">
-                <div class="inline-block border-[1px] border-gray-400 py-1 px-4 rounded-2xl mb-4">Shop by Category</div>
-                <h2 class="text-4xl font-semibold mb-4">Find Your Perfect Gadget</h2>
-                <p>Browse through our carefully curated categories and discover the latest in technology.</br> From everyday essentials to cutting-edge innovations.</p>
-            </div>
-            <div class="mb-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 px-2 gap-4" id="card-container">
-              
-            </div>
-            <div class="text-center">
-              <a href="/product" class="px-5 py-2 rounded border-blue-500 text-blue-500 border-2">View All Categories <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
+      <div class="w-full">
+        <div class="mb-10 text-center">
+          <div class="inline-block border-[1px] border-gray-400 py-1 px-4 rounded-2xl mb-4">Shop by Category</div>
+          <h2 class="text-4xl font-semibold mb-4">Find Your Perfect Gadget</h2>
+          <p>Browse through our carefully curated categories and discover the latest in technology.<br> From everyday essentials to cutting-edge innovations.</p>
         </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-3 gap-4" id="category-container"></div>
+        <div class="text-center mt-10">
+          <a href="/product" class="px-5 py-2 rounded border-blue-500 hover:text-blue-900 text-blue-500 border-2">View All Categories <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
     </section>
   `;
-    const cardContainer = div.querySelector("#card-container");
-    if (cardContainer) cardContainer.appendChild(cart);
+    const categoryContainer = div.querySelector("#category-container");
+    if (categoryContainer) categoryCards.forEach((card)=>categoryContainer.appendChild(card));
     return div;
 }
 renderHome().then((home)=>{
     document.body.innerHTML = "";
     document.body.appendChild(home);
 });
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    if (target.tagName === 'A' && target.hasAttribute('data-link')) e.preventDefault();
+});
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","../components/Card":"kAYvp"}],"kAYvp":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Card", ()=>Card);
-var _api = require("../api");
-async function Card(category) {
-    try {
-        const res = await (0, _api.fetchProducts)();
-        let products = Array.isArray(res) ? res : res.products;
-        if (category) products = products.filter((product)=>product.category === category);
-        if (!products || products.length === 0) {
-            const emptyDiv = document.createElement("div");
-            emptyDiv.textContent = "No products available.";
-            return emptyDiv;
-        }
-        const container = document.createElement("div");
-        container.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4";
-        products.forEach((product)=>{
-            const card = document.createElement("div");
-            card.className = "flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl";
-            card.innerHTML = `
-        <img class="w-full h-48 object-cover rounded-t-xl" src="${product.image}" alt="${product.title}">
-        <div class="p-4 md:p-5">
-          <h3 class="text-lg font-bold text-gray-800">${product.title}</h3>
-          <p class="mt-1 text-gray-500">${product.description.slice(0, 100)}...</p>
-          <p class="mt-1 text-sm text-blue-600 font-semibold">$${product.price}</p>
-          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700" href="#">Buy Now</a>
-        </div>
-      `;
-            container.appendChild(card);
-        });
-        return container;
-    } catch (error) {
-        console.error("Failed to fetch products:", error);
-        const errorDiv = document.createElement("div");
-        errorDiv.textContent = "Failed to load products.";
-        return errorDiv;
-    }
-}
-
-},{"../api":"hKNQC","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"hKNQC":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","../api":"hKNQC"}],"hKNQC":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "fetchProducts", ()=>fetchProducts);
@@ -1066,9 +905,9 @@ async function renderProducts() {
     const container = document.createElement('div');
     container.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4';
     try {
-        const products = await (0, _api.fetchProducts)();
-        products.forEach((product)=>{
-            const cardElement = (0, _card.Card)(product);
+        const response = await (0, _api.fetchProducts)();
+        const cardElements = await (0, _card.Card)();
+        cardElements.forEach((cardElement)=>{
             container.appendChild(cardElement);
         });
     } catch (error) {
@@ -1080,6 +919,135 @@ async function renderProducts() {
     return container;
 }
 
-},{"../api":"hKNQC","../components/Card":"kAYvp","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["3dtlh","gH3Lb"], "gH3Lb", "parcelRequire7711", {})
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","../api":"hKNQC","../components/Card":"kAYvp"}],"kAYvp":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Card", ()=>Card);
+var _api = require("../api");
+async function Card(category) {
+    try {
+        const res = await (0, _api.fetchProducts)();
+        let products = Array.isArray(res) ? res : res.products;
+        if (category) products = products.filter((product)=>product.category === category);
+        if (!products || products.length === 0) {
+            const emptyDiv = document.createElement("div");
+            emptyDiv.textContent = "No products available.";
+            return [
+                emptyDiv
+            ];
+        }
+        return products.map((product)=>{
+            const card = document.createElement("div");
+            card.className = "bg-white border border-gray-200 shadow-xl rounded-xl";
+            card.innerHTML = `
+        <img class="w-full h-52 object-contain rounded-t-xl" src="${product.image}" alt="${product.title}">
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">${product.title.slice(0, 40)}...</h3>
+          <p class="mt-1 text-gray-500">${product.description.slice(0, 60)}...</p>
+          <p class="mt-1 text-sm text-blue-600 font-semibold">$${product.price}</p>
+          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700" href="#">Buy Now</a>
+        </div>
+      `;
+            return card;
+        });
+    } catch (error) {
+        const errorDiv = document.createElement("div");
+        errorDiv.textContent = "Failed to load products.";
+        return [
+            errorDiv
+        ];
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","../api":"hKNQC"}],"aUJjy":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createLayout", ()=>createLayout);
+var _header = require("./components/Header");
+var _footer = require("./components/Footer");
+function createLayout(contentFn) {
+    const app = document.getElementById('app');
+    if (!app) return;
+    app.innerHTML = '';
+    app.appendChild((0, _header.Header)());
+    contentFn().then((content)=>{
+        app.appendChild(content);
+        app.appendChild((0, _footer.Footer)());
+    });
+}
+
+},{"./components/Footer":"11wJK","./components/Header":"7fu8U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"11wJK":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Footer", ()=>Footer);
+function Footer() {
+    const footer = document.createElement("footer");
+    footer.innerHTML = `
+    <div class="bg-gray-900 text-white py-8 px-4 mt-10">
+      <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="font-bold mb-2">COMPANY</h3>
+          <ul>
+            <li><a href="/about" data-link>About</a></li>
+            <li><a href="/product" data-link>Product</a></li>
+            <li><a href="/contact" data-link>Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-2">HELP CENTER</h3>
+          <ul>
+            <li><a href="#" class="hover:underline">Discord Server</a></li>
+            <li><a href="#" class="hover:underline">Twitter</a></li>
+            <li><a href="#" class="hover:underline">Facebook</a></li>
+            <li><a href="#" class="hover:underline">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-2">LEGAL</h3>
+          <ul>
+            <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+            <li><a href="#" class="hover:underline">Licensing</a></li>
+            <li><a href="#" class="hover:underline">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-2">DOWNLOAD</h3>
+          <ul>
+            <li><a href="#" class="hover:underline">iOS</a></li>
+            <li><a href="#" class="hover:underline">Android</a></li>
+            <li><a href="#" class="hover:underline">Windows</a></li>
+            <li><a href="#" class="hover:underline">MacOS</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center mt-8 text-gray-400 text-sm">
+        \xa9 2023 Electronic store. All Rights Reserved.
+      </div>
+    </div>
+  `;
+    return footer;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7fu8U":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Header", ()=>Header);
+function Header() {
+    const nav = document.createElement("nav");
+    nav.innerHTML = `
+    <div class="bg-blue-600 p-4 flex justify-between items-center">
+      <a href="/" class="text-white text-xl font-bold" data-link>Electronic store</a>
+      <div class="flex gap-6">
+        <a href="/" class="text-white" data-link>Home</a>
+        <a href="/about" class="text-white" data-link>About Us</a>
+        <a href="/product" class="text-white" data-link>Products</a>
+        <a href="/contact" class="text-white" data-link>Contact</a>
+      </div>
+    </div>
+  `;
+    return nav;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["3dtlh","gH3Lb"], "gH3Lb", "parcelRequire7711", {})
 
 //# sourceMappingURL=Homework006.34df32e0.js.map

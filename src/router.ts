@@ -23,23 +23,23 @@ export function initRouter(): void {
 function renderRoute(): void {
     const pathname = window.location.pathname;
 
-    let contentFn: () => HTMLElement;
+    let contentFn: () => Promise<HTMLElement>;
 
     switch (pathname) {
         case '/':
-            contentFn = renderHome;
+            contentFn = () => Promise.resolve(renderHome());
             break;
         case '/about':
-            contentFn = renderAbout;
+            contentFn = () => Promise.resolve(renderAbout());
             break;
         case '/product':
-            contentFn = renderProducts;
+            contentFn = () => Promise.resolve(renderProducts());
             break;
         case '/contact':
-            contentFn = renderContact;
+            contentFn = () => Promise.resolve(renderContact());
             break;
         default:
-            contentFn = renderNotFound;
+            contentFn = () => Promise.resolve(renderNotFound());
             break;
     }
 

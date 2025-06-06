@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Header = Header;
-exports.Footer = Footer;
 function Header() {
     const header = document.createElement('header');
     header.className = 'bg-blue-500 text-white';
@@ -25,7 +24,6 @@ function Header() {
                     </button>
                 </div>
             </div>
-
             <div id="mobile-menu" class="md:hidden mt-5 hidden space-y-4">
             <a href="/" class="block text-lg hover:text-gray-300 transition-all">Home</a>
             <a href="/about" class="block text-lg hover:text-gray-300 transition-all">About Us</a>
@@ -42,9 +40,4 @@ function Header() {
         });
     }
     return header;
-}
-function Footer() {
-    const footer = document.createElement("footer");
-    footer.innerHTML = `...your footer HTML...`;
-    return footer;
 }
