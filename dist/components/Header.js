@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Header = Header;
+exports.Footer = Footer;
 function Header() {
     const header = document.createElement('header');
     header.className = 'bg-blue-500 text-white';
@@ -41,4 +42,9 @@ function Header() {
         });
     }
     return header;
+}
+function Footer() {
+    const footer = document.createElement("footer");
+    footer.innerHTML = `...your footer HTML...`;
+    return footer;
 }

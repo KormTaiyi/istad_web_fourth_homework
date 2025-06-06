@@ -21,7 +21,6 @@ export function Header(): HTMLElement {
                     </button>
                 </div>
             </div>
-
             <div id="mobile-menu" class="md:hidden mt-5 hidden space-y-4">
             <a href="/" class="block text-lg hover:text-gray-300 transition-all">Home</a>
             <a href="/about" class="block text-lg hover:text-gray-300 transition-all">About Us</a>
@@ -30,7 +29,7 @@ export function Header(): HTMLElement {
             </div>
         </div>
   `;
-
+  
   const menuButton = header.querySelector('#menu-button') as HTMLButtonElement | null;
   const mobileMenu = header.querySelector('#mobile-menu') as HTMLElement | null;
 

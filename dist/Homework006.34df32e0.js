@@ -718,7 +718,7 @@ function renderRoute() {
     (0, _layout.createLayout)(contentFn);
 }
 
-},{"./layout":"aUJjy","./pages/about":"d8csY","./pages/contact":"a0XsK","./pages/home":"l0Soh","./pages/notfound":"20OKX","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./pages/products":"kgp9M"}],"aUJjy":[function(require,module,exports,__globalThis) {
+},{"./layout":"aUJjy","./pages/about":"d8csY","./pages/contact":"a0XsK","./pages/home":"l0Soh","./pages/notfound":"20OKX","./pages/products":"kgp9M","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aUJjy":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createLayout", ()=>createLayout);
@@ -733,7 +733,37 @@ function createLayout(contentFn) {
     app.append(header, content, footer);
 }
 
-},{"./components/Footer":"11wJK","./components/Header":"7fu8U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"11wJK":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./components/Footer":"11wJK","./components/Header":"7fu8U"}],"jnFvT":[function(require,module,exports,__globalThis) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"11wJK":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Footer", ()=>Footer);
@@ -814,37 +844,7 @@ function Footer() {
     return footer;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, '__esModule', {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"7fu8U":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7fu8U":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Header", ()=>Header);
@@ -917,8 +917,10 @@ function renderContact() {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "renderHome", ()=>renderHome);
-function renderHome() {
-    const div = document.createElement('div');
+var _card = require("../components/Card");
+async function renderHome() {
+    const cart = await (0, _card.Card)();
+    const div = document.createElement("div");
     div.innerHTML = `
     <section class="w-full bg-gray-700 py-9 px-8">
       <div class="mx-auto flex flex-col items-center lg:flex-row justify-center gap-10 py-40 max-w-7xl">
@@ -938,6 +940,7 @@ function renderHome() {
         <img class="w-full max-w-[400px]" src="https://www.att.com/scmsassets/global/accessories/audio/apple/airpods-max/defaultimage/pink-hero-zoom.png" alt="">
       </div>
     </section>
+
     <section class="py-10 bg-gray-100">
         <div class="text-center mb-10">
           <div class="inline-block border-[1px] border-gray-400 py-1 px-4 rounded-2xl mb-4">Why Choose Us</div>
@@ -963,15 +966,14 @@ function renderHome() {
         </div>
     </section>
     <section class="py-10">
-        <div class="">
+        <div>
             <div class="mb-10 text-center">
                 <div class="inline-block border-[1px] border-gray-400 py-1 px-4 rounded-2xl mb-4">Shop by Category</div>
                 <h2 class="text-4xl font-semibold mb-4">Find Your Perfect Gadget</h2>
-                <p> Browse through our carefully curated categories and discover the latest in technology.</br> From everyday essentials to cutting-edge innovations.</p>
+                <p>Browse through our carefully curated categories and discover the latest in technology.</br> From everyday essentials to cutting-edge innovations.</p>
             </div>
-            <div class="mb-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 px-2 gap-4">
+            <div class="mb-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 px-2 gap-4" id="card-container">
               
-            
             </div>
             <div class="text-center">
               <a href="/product" class="px-5 py-2 rounded border-blue-500 text-blue-500 border-2">View All Categories <i class="fa-solid fa-arrow-right"></i></a>
@@ -979,7 +981,63 @@ function renderHome() {
         </div>
     </section>
   `;
+    const cardContainer = div.querySelector("#card-container");
+    if (cardContainer) cardContainer.appendChild(cart);
     return div;
+}
+renderHome().then((home)=>{
+    document.body.innerHTML = "";
+    document.body.appendChild(home);
+});
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","../components/Card":"kAYvp"}],"kAYvp":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Card", ()=>Card);
+var _api = require("../api");
+async function Card(category) {
+    try {
+        const res = await (0, _api.fetchProducts)();
+        let products = Array.isArray(res) ? res : res.products;
+        if (category) products = products.filter((product)=>product.category === category);
+        if (!products || products.length === 0) {
+            const emptyDiv = document.createElement("div");
+            emptyDiv.textContent = "No products available.";
+            return emptyDiv;
+        }
+        const container = document.createElement("div");
+        container.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4";
+        products.forEach((product)=>{
+            const card = document.createElement("div");
+            card.className = "flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl";
+            card.innerHTML = `
+        <img class="w-full h-48 object-cover rounded-t-xl" src="${product.image}" alt="${product.title}">
+        <div class="p-4 md:p-5">
+          <h3 class="text-lg font-bold text-gray-800">${product.title}</h3>
+          <p class="mt-1 text-gray-500">${product.description.slice(0, 100)}...</p>
+          <p class="mt-1 text-sm text-blue-600 font-semibold">$${product.price}</p>
+          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700" href="#">Buy Now</a>
+        </div>
+      `;
+            container.appendChild(card);
+        });
+        return container;
+    } catch (error) {
+        console.error("Failed to fetch products:", error);
+        const errorDiv = document.createElement("div");
+        errorDiv.textContent = "Failed to load products.";
+        return errorDiv;
+    }
+}
+
+},{"../api":"hKNQC","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"hKNQC":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "fetchProducts", ()=>fetchProducts);
+async function fetchProducts() {
+    const response = await fetch('https://fakestoreapi.in/api/products');
+    const data = await response.json();
+    return data;
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"20OKX":[function(require,module,exports,__globalThis) {
@@ -1022,36 +1080,6 @@ async function renderProducts() {
     return container;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","../api":"hKNQC","../components/Card":"kAYvp"}],"hKNQC":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "fetchProducts", ()=>fetchProducts);
-async function fetchProducts() {
-    const response = await fetch('https://fakestoreapi.in/api/products');
-    if (!response.ok) throw new Error('Failed to fetch products');
-    const data = await response.json();
-    return data;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kAYvp":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Card", ()=>Card);
-function Card(product) {
-    const card = document.createElement('div');
-    card.className = 'flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70';
-    card.innerHTML = `
-    <img class="w-full h-48 object-cover rounded-t-xl" src="${product.image}" alt="${product.title}">
-    <div class="p-4 md:p-5">
-      <h3 class="text-lg font-bold text-gray-800 dark:text-white">${product.title}</h3>
-      <p class="mt-1 text-gray-500 dark:text-neutral-400">${product.description.slice(0, 100)}...</p>
-      <p class="mt-1 text-sm text-blue-600 font-semibold">$${product.price}</p>
-      <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700" href="#">Buy Now</a>
-    </div>
-  `;
-    return card;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["3dtlh","gH3Lb"], "gH3Lb", "parcelRequire7711", {})
+},{"../api":"hKNQC","../components/Card":"kAYvp","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["3dtlh","gH3Lb"], "gH3Lb", "parcelRequire7711", {})
 
 //# sourceMappingURL=Homework006.34df32e0.js.map

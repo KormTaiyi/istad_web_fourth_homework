@@ -13,9 +13,6 @@ exports.fetchProducts = fetchProducts;
 function fetchProducts() {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield fetch('https://fakestoreapi.in/api/products');
-        if (!response.ok) {
-            throw new Error('Failed to fetch products');
-        }
         const data = yield response.json();
         return data;
     });

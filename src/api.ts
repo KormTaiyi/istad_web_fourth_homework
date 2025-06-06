@@ -1,21 +1,14 @@
 export interface Product {
   id: number;
   title: string;
+  image: string;
   price: number;
   description: string;
-  image: string;
-  category: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
+  brand: string;
 }
 
-export async function fetchProducts(): Promise<Product[]> {
+export async function fetchProducts(): Promise<{ status: string; message: string; products: Product[] }> {
   const response = await fetch('https://fakestoreapi.in/api/products');
-  if (!response.ok) {
-    throw new Error('Failed to fetch products');
-  }
-  const data: Product[] = await response.json();
+  const data = await response.json();
   return data;
 }
