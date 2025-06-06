@@ -6,6 +6,7 @@ const about_1 = require("./pages/about");
 const contact_1 = require("./pages/contact");
 const home_1 = require("./pages/home");
 const notfound_1 = require("./pages/notfound");
+const products_1 = require("./pages/products");
 function initRouter() {
     window.addEventListener('popstate', renderRoute);
     document.addEventListener('click', e => {
@@ -28,6 +29,9 @@ function renderRoute() {
             break;
         case '/about':
             contentFn = about_1.renderAbout;
+            break;
+        case '/product':
+            contentFn = products_1.renderProducts;
             break;
         case '/contact':
             contentFn = contact_1.renderContact;
